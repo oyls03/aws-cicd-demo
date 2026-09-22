@@ -1,12 +1,7 @@
 variable "aws_region" {
-  description = "AWS region to deploy resources"
+  description = "AWS region for the demonstration environment."
   type        = string
   default     = "ap-southeast-1"
-
-  validation {
-    condition     = var.aws_region == "ap-southeast-1"
-    error_message = "Invalid AWS region. Please specify 'ap-southeast-1' (Singapore)."
-  }
 }
 
 variable "vpc_cidr" {
@@ -41,3 +36,20 @@ variable "project_name" {
   }
 }
 
+variable "github_owner" {
+  description = "GitHub repository owner."
+  type        = string
+  default     = "oyls03"
+}
+
+variable "github_repository" {
+  description = "GitHub repository containing the CI/CD workflows."
+  type        = string
+  default     = "aws-cicd-demo"
+}
+
+variable "github_branch" {
+  description = "GitHub branch permitted to assume the deployment role."
+  type        = string
+  default     = "main"
+}
